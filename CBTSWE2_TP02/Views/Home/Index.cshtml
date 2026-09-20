@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "NaviBL";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Bem-vindo à NaviBL</h1>
+
+    <p class="lead">
+        Sistema para gerenciamento de BLs e seus respectivos contêineres.
+    </p>
+</div>
+
+<div class="row justify-content-center g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h3 class="card-title">BLs</h3>
+
+                <p class="card-text">
+                    Consulte, cadastre, edite e gerencie os BLs registrados no sistema.
+                </p>
+                <a asp-controller="BLs"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    Gerenciar BLs
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h3 class="card-title">Contêineres</h3>
+
+                <p class="card-text">
+                    Consulte e gerencie os contêineres associados aos BLs cadastrados.
+                </p>
+                <a asp-controller="ContainerOBJs"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    Gerenciar Contêineres
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h3 class="card-title">Relatório</h3>
+
+                <p class="card-text">
+                    Visualize a relação dos BLs cadastrados e seus respectivos contêineres.
+                </p>
+                <a asp-controller="Relatorio"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                    Visualizar Relatório
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model CBTSWE2_TP02.Models.BL
+
+@{
+    ViewData["Title"] = "Excluir BL";
+}
+
+<h1>Excluir BL</h1>
+
+<h3>Voce tem certeza que deseja deletar o BL?</h3>
+<div>
+    <h4>BL</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Consignee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Consignee)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Navio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Navio)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

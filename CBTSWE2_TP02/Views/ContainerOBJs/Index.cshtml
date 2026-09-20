@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CBTSWE2_TP02.Models.ContainerOBJ>
+
+@{
+    ViewData["Title"] = "Contêineres";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Contêineres</h1>
+
+    <a asp-action="Create" class="btn btn-primary">
+        Cadastrar Contêiner
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Numero)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tipo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tamanho)
+                        </th>
+                        <th>
+                            BL
+                        </th>
+                        <th>
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Numero)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tipo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tamanho)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Bl.Consignee)
+                            </td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.ID"
+                                       class="btn btn-primary btn-sm">
+                                        Editar
+                                    </a>
+
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.ID"
+                                       class="btn btn-info btn-sm">
+                                        Detalhes
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.ID"
+                                       class="btn btn-danger btn-sm">
+                                        Excluir
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

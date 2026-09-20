@@ -1,0 +1,67 @@
+﻿@model CBTSWE2_TP02.Models.ContainerOBJ
+
+@{
+    ViewData["Title"] = "Cadastrar Contêiner";
+}
+
+<h1 class="mb-4">Cadastrar Contêiner</h1>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title">Dados do Contêiner</h4>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Numero" class="control-label"></label>
+                        <input asp-for="Numero" class="form-control" />
+                        <span asp-validation-for="Numero" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Tipo" class="control-label"></label>
+                        <select asp-for="Tipo" class="form-select">
+                            <option value="">Selecione o tipo</option>
+                            <option value="Dry">Dry</option>
+                            <option value="Reefer">Reefer</option>
+                        </select>
+                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Tamanho" class="control-label"></label>
+                        <select asp-for="Tamanho" class="form-select">
+                            <option value="20">20</option>
+                            <option value="40">40</option>
+                        </select>
+                        <span asp-validation-for="Tamanho" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="BLId" class="control-label"></label>
+                        <select asp-for="BLId"
+                                class="form-select"
+                                asp-items="ViewBag.BLId">
+                        </select>
+                        <span asp-validation-for="BLId" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Voltar à lista</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

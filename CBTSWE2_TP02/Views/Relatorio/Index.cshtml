@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CBTSWE2_TP02.Models.BL>
+
+@{
+    ViewData["Title"] = "Relatório";
+}
+
+<div class="text-center mb-4">
+    <h1 class="display-4">Relatório de BLs e Contêineres</h1>
+    <h2>
+        Relação dos BLs cadastrados e seus respectivos contêineres.
+    </h2>
+</div>
+
+@foreach(var bl in Model)
+{
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="mb-0">BL: @bl.Numero</h4>
+        </div>
+		<div class="card-body">
+            <p> 
+                <strong>Consignee:</strong> @bl.Consignee 
+            <br/> 
+                <strong>Navio:</strong> @bl.Navio
+            </p>
+
+            <h5>Contêineres</h5>
+
+            @if(bl.ContainersOBJs.Count != 0){
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Tipo</th>
+                        <th>Tamanho</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var container in bl.ContainersOBJs)
+                    {
+                        <tr>
+                            <td>@container.Numero</td>
+                            <td>@container.Tipo</td>
+                            <td>@container.Tamanho</td>
+                        </tr>
+                    }    
+                </tbody>
+            </table>
+			}
+			else
+			{
+                <h4 class="text-danger">Nenhum contêiner associado a este BL.</h4>
+            }
+        </div>
+    </div>
+}
